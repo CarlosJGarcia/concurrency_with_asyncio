@@ -1,5 +1,5 @@
-# Fetch HTML page example.com and save the HTTP header as headers.txt
 # Example I/O-bound task that blocks the Python script until it has been completed
+# Fetch HTML page example.com and save the HTTP header as headers.txt
 
 import time
 import urllib3
@@ -15,6 +15,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 console = Console()
 start_time = time.time()
 console.print(f"\nLoading {URL}", style="gold1", highlight=False)
+
 # Sends the HTTP GET request to the web server and get the whole response in an object 
 response = requests.get(URL, verify=False)
 
@@ -33,7 +34,7 @@ headers = [f"{key}: {header}" for key, header in items]
 # Build a string, concatenating all the strings in the list, separated by \n
 formatted_headers = '\n'.join(headers)
 
-# Opens a file for writing and writes the string
+# Opens a file and writes the string
 print(f"Writing {FILE}")
 with open(FILE, 'w') as file:
     file.write(formatted_headers)      

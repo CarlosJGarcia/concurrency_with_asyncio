@@ -1,7 +1,12 @@
+# Single-thread Python application
+# Show the PID and thread name
+# Libraries: os and threading
+
 import os
 import threading
  
-print(f"\nHello world!")
+print()
+print("hello, world")
 print(f"Python process running with process id: {os.getpid()}")
 
 total_threads = threading.active_count()

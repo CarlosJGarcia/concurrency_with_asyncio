@@ -1,0 +1,30 @@
+Concurrencia: Dos tareas que se hacen independientemente
+Ejemplo:
+- Un pastelero mezcla los ingredientes de un pastel mientras se calienta el horno
+- Hay dos tareas al mismo tiempo: Mezclar ingredientes y el horno se calienta
+
+Paralelismo: No solo dos tareas se ejecutan independientemente (concurrentemente) sino al mismo tiempo
+Ejemplo:
+- Dos pasteleros mezclando cada uno los ingredientes de un pastel, cada uno con sus propias herramientas
+
+
+
+CPU con 1 Core:
+- Tiempo ->
+- CPU: Tarea 1 | Tarea 2 | Tarea 1 | Tarea 2
+- Concurrencia: Dos tareas que se hacen independientemente. Si solo hay 1 CPU, hay que ir alternando
+- Multitasking
+
+CPU con 2 Cores:
+- Tiempo ->
+- CPU 1: Tarea 1
+- CPU 2: Tarea 2
+- Paralelismo: Dos tareas que se hacen independientenmente y al mismo tiempo. Requiere 2 CPUs
+- Multithreading
+
+Proceso: Elemento del Sistema Operativo que tiene su propio espacio de memoria, aislado del de otros procesos, su propio CPU Core y un PID (Process ID)
+
+Librerías Python
+- multiprocessing: Permite crear procesos independientes. Cada proceso tiene su propio espacio de memoria aislado de otros procesos y su propio CPU Core
+- threading: Permite creat threads dentro del proceso del programa python
+- asyncio: Todo está dentro del mismo proceso y del mismo thread. El código (event loop, usando await) controla qué se está ejecutando
