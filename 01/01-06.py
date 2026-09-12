@@ -1,7 +1,9 @@
 # Generating and timing the Fibonacci sequence
 # Multithreaded Python application
-# While it's running open $ htop to see how one core will be 100% busy
-# Also the Ubuntu scheduled can assign each thread to a core, but the GIL will make that only one is active at a time (50% / 50%)
+# While it's running, open $ htop 
+# Instead of one core 100% busy, the OS scheduler will assign the two threads to two different cores
+# The GIL serializes execution — only one thread runs Python bytecode at a time
+# Result: no paralelism, no speedup, just GIL-switching overhead 
 
 import time
 import threading
