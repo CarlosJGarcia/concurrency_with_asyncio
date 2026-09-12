@@ -23,14 +23,15 @@ def print_fib(number):                         # Outer function: takes the inpu
 
      
 def fibonacci_with_threads():
+    # Initializes new thread objects, pointing to the function 
     fortieth_thread = threading.Thread(target=print_fib, args=(40,))
     forty_first_thread = threading.Thread(target=print_fib, args=(41,))
  
-    fortieth_thread.start()
-    forty_first_thread.start()
+    fortieth_thread.start()                   # Start running fortieth_thread
+    forty_first_thread.start()                # Start running forty_first_thread
  
-    fortieth_thread.join()
-    forty_first_thread.join()
+    fortieth_thread.join()                    # Wait until fortieth_thread has finished
+    forty_first_thread.join()                 # Wait until forty_first_thread has finished
  
  
 print("\nStarting 40 and 41")

@@ -23,9 +23,11 @@ def fibonacci_no_threading():
     print_fib(41)
  
  
+"""
 print()
 for n in range(1, 7):
     print_fib(n)
+"""
 
 print("\nStarting 40 and 41")
 start_time = time.time()
