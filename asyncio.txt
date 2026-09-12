@@ -28,3 +28,5 @@ Librerías Python
 - multiprocessing: Permite crear procesos independientes. Cada proceso tiene su propio espacio de memoria aislado de otros procesos y su propio CPU Core
 - threading: Permite creat threads dentro del proceso del programa python
 - asyncio: Todo está dentro del mismo proceso y del mismo thread. El código (event loop, usando await) controla qué se está ejecutando
+
+Race condition: When, due to concurency the output of the probram is unpredictable as it depends on the behaviour of the OS scheduler, which depends on the status of the computer, which is different every time that the program is executed.
