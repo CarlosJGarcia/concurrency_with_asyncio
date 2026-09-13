@@ -5,6 +5,7 @@
 import time
  
 # Calculates and prints a specific number in the Fibonacci sequence
+# The classic way to generate heavy and sustained CPU load
 # Uses nested functions and recursion
 def print_fib(number):                         # Outer function: takes the input and prints the output
     def fib(n):                                # Nested function: can only be called from print_fib()
