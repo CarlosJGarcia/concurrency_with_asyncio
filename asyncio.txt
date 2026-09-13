@@ -30,3 +30,8 @@ Librerías Python
 - asyncio: Todo está dentro del mismo proceso y del mismo thread. El código (event loop, usando await) controla qué se está ejecutando
 
 Race condition: When, due to concurency the output of the probram is unpredictable as it depends on the behaviour of the OS scheduler, which depends on the status of the computer, which is different every time that the program is executed.
+
+GIL: Global Interpreter Lock
+
+Asyncio and the GIL
+asyncio exploits the fact that I/O operations release the GIL to give us concurrency, even with only one thread.

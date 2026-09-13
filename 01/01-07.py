@@ -46,9 +46,10 @@ def fibonacci_process_fortyfour_code():
 
 
 
-if __name__ == '__main__':                                   # Main is best practice in normal scripts but mandatory in multiprocessing scripts
+# Main is best practice in normal scripts but mandatory in multiprocessing scripts
+if __name__ == '__main__':                                   
 
-    print("\nStarting Fibonacci parallel calculations")
+    print("\nStarting Fibonacci parallel calculations, this might take hours")
     start_time = time.time()
 
     fibonacci_process_forty = multiprocessing.Process(target=fibonacci_process_forty_code)
@@ -77,7 +78,7 @@ if __name__ == '__main__':                                   # Main is best prac
  
     # Show time
     end_time = time.time()
-    execution_time_seconds = (end_time - start_time)
-    print(f"Time: {execution_time_seconds:.2f} seconds\n")
+    execution_time_minutes = (end_time - start_time) / 60
+    print(f"Time: {execution_time_minutes:,.2f} minutes\n")
 
     
