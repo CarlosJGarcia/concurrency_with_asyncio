@@ -10,17 +10,18 @@ import time
 import multiprocessing
  
 # Calculates and prints a specific number in the Fibonacci sequence
+# The classic way to generate heavy and sustained CPU load
 # Uses nested functions and recursion
-def print_fib(number):                         # Outer function: takes the input and prints the output
-    def fib(n):                                # Nested function: can only be called from print_fib()
+def print_fib(number):                                # Outer function: takes the input and prints the output
+    def fib(n):                                       # Nested function: can only be called from print_fib()
         if n == 1:
             return 0
         elif n == 2:
             return 1
         else:
-            return fib(n - 1) + fib(n - 2)    # Recursion: the function definition calls itself
+            return fib(n - 1) + fib(n - 2)            # Recursion: the function definition calls itself
  
-    print(f"Number {number} in the Fibonacci sequence is {fib(number)}")
+    print(f"Number {number} in the Fibonacci sequence is {fib(number):,}") # Format the integer with commas for thousands separators. Python doesn't support dots for thousands separators.
 
      
 def fibonacci_process_forty_code():
@@ -65,7 +66,7 @@ if __name__ == '__main__':                                   # Main is best prac
     fibonacci_process_fortyfour = multiprocessing.Process(target=fibonacci_process_fortyfour_code)
     fibonacci_process_fortyfour.start()
     
-    print(f"\nHello from parent process")
+    print(f"Hello from parent process")
 
     # Wait until the child processes have finished before closing the parent process
     fibonacci_process_forty.join()                         
