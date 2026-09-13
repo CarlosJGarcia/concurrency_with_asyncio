@@ -1,3 +1,7 @@
+# First we run two IO-bound tasks sequentially
+# Next we run the two IO-bound tasks concurrently using threads
+# CPU-bound threads serialize due to the GIL but the I/O-bound threads release the GIL while waiting, enabling overlap (concurrency)
+
 import time
 import requests
 import threading
