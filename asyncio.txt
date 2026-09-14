@@ -33,5 +33,8 @@ Race condition: When, due to concurency the output of the probram is unpredictab
 
 GIL: Global Interpreter Lock
 
-Asyncio and the GIL
-asyncio exploits the fact that I/O operations release the GIL to give us concurrency, even with only one thread.
+Asyncio and the GIL: asyncio exploits the fact that I/O operations release the GIL to give us concurrency, even with only one thread.
+
+Coroutine: A Python function that can be paused
+async: Python keyword that allows to define coroutines
+await: Python keyword that allows to pause coroutines
