@@ -2,37 +2,43 @@
 
 import asyncio
 
-async def coroutine_greet():
-    print("Hello, world")
-
+# Function
 def greet():
     print("Hello, world")
 
 
-async def coroutine_add_one(number):
-    return number + 1
+# Coroutine that doesn't return any value
+async def coroutine_greet():
+    print("Hello, world")
+
+
+# Function that returns a value
+def increase(n):
+    return n + 1
+
+# Coroutine that returns a value
+async def coroutine_increase(n):
+    return n + 1
  
-def add_one(number):
-    return number + 1
+
+
+# Run the functions
 
 print()
 greet()
+result = increase(1)
+print(f"1 + 1 = {result}")
 
-# Run the function
-result = add_one(1)
-print(f"Result 1+1: {result}")
-
-
-# Try to run the coroutine (it won't work, as coroutines are not run just by entering the name as if they were normal functions)
-# The code inside will not run and it will just return a coroutine object
-coroutine_result = coroutine_add_one(1)
+# Try to run the coroutine. It won't work, as coroutines are not run just by entering the name as if they were normal functions.
+# The code inside will not run and it will just return a coroutine object.
+coroutine_result = coroutine_increase(1)
 print(f"Coroutine result 1+1: {coroutine_result}")
 
-# Tell Python to safely close it so it doesn't throw a warning when deleted
+# Close the coroutine object so Python doesn't throw a warning
 coroutine_result.close()
 
-# Now I run the coroutine using asyncio.run()
-coroutine_result = asyncio.run(coroutine_add_one(1))
-print(f"Coroutine result 1+1: {coroutine_result}")
+# Run the coroutine using asyncio.run()
+coroutine_result = asyncio.run(increase(1))
+print(f"Coroutine 1 + 1 = {coroutine_result}")
 
 print()

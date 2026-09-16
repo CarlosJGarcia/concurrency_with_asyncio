@@ -38,3 +38,22 @@ Asyncio and the GIL: asyncio exploits the fact that I/O operations release the G
 Coroutine: A Python function that can be paused
 async: Python keyword that allows to define coroutines
 await: Python keyword that allows to pause coroutines
+
+
+
+Define a function
+-----------------
+def increase(n):
+    return n + 1
+
+
+Define a coroutine
+------------------
+async def increase(n):
+    return n + 1
+
+Run a coroutine. There are two ways.
+------------------------------------
+asyncio.run(increase(42))
+
+result = await increase(42) 
