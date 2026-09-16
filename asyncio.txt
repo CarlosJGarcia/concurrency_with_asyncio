@@ -54,6 +54,8 @@ async def increase(n):
 
 Run a coroutine. There are two ways.
 ------------------------------------
-asyncio.run(increase(42))
-
+result = asyncio.run(increase(42))
 result = await increase(42) 
+
+asyncio.run() can be placed anywhere in a Python script
+await must be inside an async function (coroutine)

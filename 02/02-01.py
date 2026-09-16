@@ -1,4 +1,4 @@
-# Asyncio: Coroutines
+# Asyncio: Coroutines (async functions)
 
 import asyncio
 
@@ -40,5 +40,8 @@ coroutine_result.close()
 # Run the coroutine using asyncio.run()
 coroutine_result = asyncio.run(increase(1))
 print(f"Coroutine 1 + 1 = {coroutine_result}")
+
+# Run the coroutine using await is not possible here, because await is allowed only within an async function (coroutine)
+# coroutine_result = await increase(42) 
 
 print()
