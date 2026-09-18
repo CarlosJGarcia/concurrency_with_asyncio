@@ -9,13 +9,19 @@ if import_dir not in sys.path:
     sys.path.insert(0, import_dir)
 
 from delay_functions import delay
- 
- 
+  
 async def main():
-    sleep_for_three = asyncio.create_task(delay(3))
-    print(type(sleep_for_three))
-    result = await sleep_for_three
-    print(result)
- 
+
+    # Create a task for the coroutine (task -> coroutine -> code that otherwise would be in a function)
+    print("\nCreating the task")
+    delay_task = asyncio.create_task(delay(3))
+    print(f"Type of the task object: {type(delay_task)}\n")
+
+    # Execute the task
+    result = await delay_task
+    print(f"Return value from running delay(3) asycronously: {result}\n")
+
+
+# Main  
 asyncio.run(main())
 
