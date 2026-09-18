@@ -1,4 +1,4 @@
-# Create two tasks and run them at the same time
+# Create a task and run it
 import os
 import sys
 import asyncio
