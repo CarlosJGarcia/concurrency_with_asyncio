@@ -9,7 +9,7 @@ async def message():
 
 async def main():
     print()
-    msg = await message()
+    msg = await message()      # Pauses main() until message() returns
     print(f"{msg}\n")
  
 # Main

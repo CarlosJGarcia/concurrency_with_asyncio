@@ -1,4 +1,5 @@
-# This script shows the basic syntax of coroutines
+# How to define coroutines (async function) that returns a value and how to call the using await and asyncio.run()
+
 import asyncio
  
 async def add_one(number):

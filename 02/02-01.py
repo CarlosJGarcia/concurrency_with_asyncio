@@ -1,4 +1,4 @@
-# Asyncio: Coroutines (async functions)
+# Asyncio: How to define a coroutine (async function) and how to call it
 
 import asyncio
 
@@ -29,8 +29,9 @@ greet()
 result = increase(1)
 print(f"1 + 1 = {result}")
 
-# Try to run the coroutine. It won't work, as coroutines are not run just by entering the name as if they were normal functions.
-# The code inside will not run and it will just return a coroutine object.
+# Try to run the coroutine as if it were a normal function
+# It won't work, as coroutines are not run just by entering the name as if they were normal functions
+# The code inside will not run and it will just return a coroutine object
 coroutine_result = coroutine_increase(1)
 print(f"Coroutine result 1+1: {coroutine_result}")
 
