@@ -1,3 +1,5 @@
+Conceptos fundamentales: Concurrencia y paralelismo
+
 Concurrencia: Dos tareas que se hacen independientemente
 Ejemplo:
 - Un pastelero mezcla los ingredientes de un pastel mientras se calienta el horno
@@ -8,11 +10,10 @@ Ejemplo:
 - Dos pasteleros mezclando cada uno los ingredientes de un pastel, cada uno con sus propias herramientas
 
 
-
 CPU con 1 Core:
 - Tiempo ->
 - CPU: Tarea 1 | Tarea 2 | Tarea 1 | Tarea 2
-- Concurrencia: Dos tareas que se hacen independientemente. Si solo hay 1 CPU, hay que ir alternando
+- Concurrencia: Dos tareas que se hacen independientemente. Como solo hay 1 CPU, hay que ir alternando.
 - Multitasking
 
 CPU con 2 Cores:
@@ -22,18 +23,19 @@ CPU con 2 Cores:
 - Paralelismo: Dos tareas que se hacen independientenmente y al mismo tiempo. Requiere 2 CPUs
 - Multithreading
 
-Proceso: Elemento del Sistema Operativo que tiene su propio espacio de memoria, aislado del de otros procesos, su propio CPU Core y un PID (Process ID)
+Proceso: Elemento del Sistema Operativo que tiene su propio espacio de memoria, aislado del de otros procesos, un PID (Process ID) y normalmente el scheduler corre en su propio CPU Core
 
 Librerías Python
 - multiprocessing: Permite crear procesos independientes. Cada proceso tiene su propio espacio de memoria aislado de otros procesos y su propio CPU Core
-- threading: Permite creat threads dentro del proceso del programa python
+- threading: Permite crear threads dentro del proceso del programa python
 - asyncio: Todo está dentro del mismo proceso y del mismo thread. El código (event loop, usando await) controla qué se está ejecutando
 
-Race condition: When, due to concurency the output of the probram is unpredictable as it depends on the behaviour of the OS scheduler, which depends on the status of the computer, which is different every time that the program is executed.
+Race condition: When, due to concurrency the output of the program is unpredictable as it depends on the behaviour of the OS scheduler, which depends on the status of the computer, which is different every time that the program is executed.
 
 GIL: Global Interpreter Lock
 
 Asyncio and the GIL: asyncio exploits the fact that I/O operations release the GIL to give us concurrency, even with only one thread.
+Asyncio is ideal for I/O-bound work (network, files, DB queries, LLM inference), but not for CPU-bound work
 
 Coroutine: A Python function that can be paused
 async: Python keyword that allows to define coroutines
@@ -52,10 +54,23 @@ Define a coroutine
 async def increase(n):
     return n + 1
 
-Run a coroutine. There are two ways.
-------------------------------------
+
+Define a task
+-------------
+increase_task = asyncio.create_task(increase(3))
+
+
+Run a coroutine directly. There are two ways.
+---------------------------------------------
 result = asyncio.run(increase(42))
 result = await increase(42) 
 
 asyncio.run() can be placed anywhere in a Python script
 await must be inside an async function (coroutine)
+
+
+ Run a coroutine using the task
+ ------------------------------
+ result = await increase_task
+
+ await must be inside an async function (coroutine)
