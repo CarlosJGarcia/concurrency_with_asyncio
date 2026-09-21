@@ -1,4 +1,4 @@
-# Create a task and run it
+# Create two tasks and run them concurrently
 import os
 import sys
 import asyncio
@@ -13,14 +13,17 @@ from delay_functions import delay
 async def main():
 
     # Create a task for the coroutine (task -> coroutine -> code that otherwise would be in a function)
-    print("\nCreating the task")
+    print("\nCreating the tasks")
     delay_task = asyncio.create_task(delay(3))
-    print(f"Type of the task object: {type(delay_task)}")
+    delay_again_task = asyncio.create_task(delay(4))
 
-    # Execute the task
-    print("\nExecuting the task")
-    result = await delay_task
-    print(f"Return value from running delay(3) asycronously: {result}\n")
+    # Execute the tasks
+    print("\nExecuting the tasks")
+    result_one = await delay_task
+    result_two = await delay_again_task
+
+    print(f"\nReturn value from running delay(3) asycronously: {result_one}")
+    print(f"Return value from running delay(4) asycronously: {result_two}\n")
 
 
 # Main  
